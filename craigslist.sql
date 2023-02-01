@@ -1,0 +1,2 @@
+-- Ioana A Mititean
+-- 22.4: SQL Data Modeling Exercise
