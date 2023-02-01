@@ -84,3 +84,27 @@ VALUES
     ('Hyperthyroidism', 'Deficiency in TSH, excessive thyroid hormone'),
     ('Myocarditis', 'Inflammation of heart muscle'),
     ('Coronary artery disease', 'Narrowed arteries due to buildup of plaque');
+
+
+INSERT INTO doctor_patient
+    (doctor_id, patient_id)
+VALUES
+    (1, 2),
+    (1, 4),
+    (1, 1),
+    (2, 1),
+    (2, 3),
+    (2, 2);
+
+
+INSERT INTO patient_disease
+    (patient_id, disease_id)
+VALUES
+    (1, 3),
+    (1, 1),
+    (1, 2),
+    (2, 2),
+    (2, 4),
+    (3, 3),
+    (4, 1),
+    (4, 2);
