@@ -52,3 +52,35 @@ CREATE TABLE patient_disease
     patient_id INT REFERENCES patient ON DELETE CASCADE,
     disease_id INT REFERENCES disease ON DELETE CASCADE
 );
+
+
+INSERT INTO medcenter
+    (title, address, created)
+VALUES
+    ('Endocrinology Center', 'address 1', '01-01-1950'),
+    ('Cardiology Center', 'address 2', '12-12-1979');
+
+
+INSERT INTO doctor
+    (first_name, last_name, specialization, center_id)
+VALUES
+    ('Alice', 'A', 'Endocrinology', 1),
+    ('Bob', 'B', 'Cardiology', 2);
+
+
+INSERT INTO patient
+    (first_name, last_name, age)
+VALUES
+    ('Carlo', 'C', 78),
+    ('Deedee', 'D', 47),
+    ('El', 'E', 99),
+    ('Frank', 'F', 32);
+
+
+INSERT INTO disease
+    (name, description)
+VALUES
+    ('Hypothyroidism', 'Excessive TSH, deficiency in thyroid hormone'),
+    ('Hyperthyroidism', 'Deficiency in TSH, excessive thyroid hormone'),
+    ('Myocarditis', 'Inflammation of heart muscle'),
+    ('Coronary artery disease', 'Narrowed arteries due to buildup of plaque');
