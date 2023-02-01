@@ -21,7 +21,7 @@ CREATE TABLE doctor
     first_name TEXT NOT NULL,
     last_name TEXT,
     specialization TEXT,
-    center_id INT REFERENCES medcenter
+    center_id INT REFERENCES medcenter ON DELETE SET NULL
 );
 
 CREATE TABLE patient
@@ -29,7 +29,7 @@ CREATE TABLE patient
     id SERIAL PRIMARY KEY,
     first_name TEXT NOT NULL,
     last_name TEXT,
-    age INT
+    age INT CHECK (age >= 0)
 );
 
 CREATE TABLE disease
@@ -42,13 +42,13 @@ CREATE TABLE disease
 CREATE TABLE doctor_patient
 (
     id SERIAL PRIMARY KEY,
-    doctor_id INT REFERENCES doctor,
-    patient_id INT REFERENCES patient
+    doctor_id INT REFERENCES doctor ON DELETE CASCADE,
+    patient_id INT REFERENCES patient ON DELETE CASCADE
 );
 
 CREATE TABLE patient_disease
 (
     id SERIAL PRIMARY KEY,
-    patient_id INT REFERENCES patient,
-    disease_id INT REFERENCES disease
+    patient_id INT REFERENCES patient ON DELETE CASCADE,
+    disease_id INT REFERENCES disease ON DELETE CASCADE
 );
