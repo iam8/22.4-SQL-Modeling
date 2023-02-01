@@ -38,3 +38,17 @@ CREATE TABLE disease
     name TEXT NOT NULL,
     description TEXT
 );
+
+CREATE TABLE doctor_patient
+(
+    id SERIAL PRIMARY KEY,
+    doctor_id INT REFERENCES doctor,
+    patient_id INT REFERENCES patient
+);
+
+CREATE TABLE patient_disease
+(
+    id SERIAL PRIMARY KEY,
+    patient_id INT REFERENCES patient,
+    disease_id INT REFERENCES disease
+);
