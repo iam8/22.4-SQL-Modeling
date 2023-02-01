@@ -7,6 +7,7 @@ CREATE DATABASE craigslist;
 
 \c craigslist
 
+
 CREATE TABLE region
 (
     id SERIAL PRIMARY KEY,
