@@ -15,14 +15,13 @@ CREATE TABLE region
     country TEXT
 );
 
-
 CREATE TABLE user
 (
     id SERIAL PRIMARY KEY,
     username VARCHAR(20) NOT NULL,
+    password VARCHAR(20) NOT NULL,
     region_id INT REFERENCES region ON DELETE SET NULL
 );
-
 
 CREATE TABLE post
 (
@@ -30,8 +29,8 @@ CREATE TABLE post
     title TEXT NOT NULL,
     text TEXT,
     user_id INT REFERENCES user ON DELETE CASCADE
+    region_id INT REFERENCES region ON DELETE CASCADE
 );
-
 
 CREATE TABLE category
 (
@@ -40,10 +39,9 @@ CREATE TABLE category
     description TEXT
 );
 
-
 CREATE TABLE post_category
 (
     id SERIAL PRIMARY KEY,
     post_id INT REFERENCES post ON DELETE CASCADE,
-    user_id INT REFERENCES user ON DELETE CASCADE
+    category_id INT REFERENCES category ON DELETE CASCADE
 );
