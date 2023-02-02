@@ -1,11 +1,10 @@
--- from the terminal run:
--- psql < outer_space.sql
+-- Ioana A Mititean
+-- 22.4: SQL Data Modeling Exercise
 
 DROP DATABASE IF EXISTS outer_space;
-
 CREATE DATABASE outer_space;
-
 \c outer_space
+
 
 CREATE TABLE planets
 (

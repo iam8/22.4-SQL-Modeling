@@ -1,11 +1,10 @@
--- from the terminal run:
--- psql < music.sql
+-- Ioana A Mititean
+-- 22.4: SQL Data Modeling Exercise
 
 DROP DATABASE IF EXISTS music;
-
 CREATE DATABASE music;
-
 \c music
+
 
 CREATE TABLE songs
 (

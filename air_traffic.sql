@@ -1,11 +1,10 @@
--- from the terminal run:
--- psql < air_traffic.sql
+-- Ioana A Mititean
+-- 22.4: SQL Data Modeling Exercise
 
 DROP DATABASE IF EXISTS air_traffic;
-
 CREATE DATABASE air_traffic;
-
 \c air_traffic
+
 
 CREATE TABLE tickets
 (
