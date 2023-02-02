@@ -2,9 +2,7 @@
 -- 22.4: SQL Data Modeling Exercise
 
 DROP DATABASE IF EXISTS craigslist;
-
 CREATE DATABASE craigslist;
-
 \c craigslist
 
 
@@ -15,7 +13,7 @@ CREATE TABLE region
     country TEXT
 );
 
-CREATE TABLE user
+CREATE TABLE userdata
 (
     id SERIAL PRIMARY KEY,
     username VARCHAR(20) NOT NULL,
@@ -28,7 +26,7 @@ CREATE TABLE post
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
     text TEXT,
-    user_id INT REFERENCES user ON DELETE CASCADE
+    user_id INT REFERENCES userdata ON DELETE CASCADE,
     region_id INT REFERENCES region ON DELETE CASCADE
 );
 
