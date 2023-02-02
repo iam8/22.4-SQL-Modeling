@@ -9,8 +9,8 @@ CREATE DATABASE outer_space;
 CREATE TABLE planets
 (
   id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
-  orbital_period_in_years FLOAT NOT NULL,
+  name TEXT UNIQUE NOT NULL,
+  orbital_period_in_years FLOAT NOT NULL CHECK (orbital_period_in_years > 0),
   orbits_around TEXT NOT NULL,
   galaxy TEXT NOT NULL,
   moons TEXT[]

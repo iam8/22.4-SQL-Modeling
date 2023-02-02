@@ -11,7 +11,7 @@ CREATE TABLE tickets
   id SERIAL PRIMARY KEY,
   first_name TEXT NOT NULL,
   last_name TEXT,
-  seat VARCHAR(4) NOT NULL,
+  seat VARCHAR(4) UNIQUE NOT NULL,
   departure TIMESTAMP NOT NULL,
   arrival TIMESTAMP NOT NULL,
   airline TEXT NOT NULL,

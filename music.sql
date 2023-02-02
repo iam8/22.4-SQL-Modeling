@@ -10,7 +10,7 @@ CREATE TABLE songs
 (
   id SERIAL PRIMARY KEY,
   title TEXT NOT NULL,
-  duration_in_seconds INTEGER NOT NULL,
+  duration_in_seconds INTEGER NOT NULL CHECK (duration_in_seconds > 0),
   release_date DATE NOT NULL,
   artists TEXT[] NOT NULL,
   album TEXT NOT NULL,
