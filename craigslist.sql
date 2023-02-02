@@ -6,14 +6,14 @@ CREATE DATABASE craigslist;
 \c craigslist
 
 
-CREATE TABLE region
+CREATE TABLE regions
 (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     country TEXT
 );
 
-CREATE TABLE userdata
+CREATE TABLE users
 (
     id SERIAL PRIMARY KEY,
     username VARCHAR(20) NOT NULL,
@@ -21,23 +21,23 @@ CREATE TABLE userdata
     region_id INT REFERENCES region ON DELETE SET NULL
 );
 
-CREATE TABLE post
+CREATE TABLE posts
 (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
     text TEXT,
-    user_id INT REFERENCES userdata ON DELETE CASCADE,
+    user_id INT REFERENCES users ON DELETE CASCADE,
     region_id INT REFERENCES region ON DELETE CASCADE
 );
 
-CREATE TABLE category
+CREATE TABLE categories
 (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     description TEXT
 );
 
-CREATE TABLE post_category
+CREATE TABLE posts_categories
 (
     id SERIAL PRIMARY KEY,
     post_id INT REFERENCES post ON DELETE CASCADE,
