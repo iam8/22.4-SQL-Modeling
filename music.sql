@@ -6,19 +6,19 @@ CREATE DATABASE music;
 \c music
 
 
-CREATE TABLE artist
+CREATE TABLE artists
 (
     id SERIAL PRIMARY KEY,
     name TEXT UNIQUE NOT NULL
 );
 
-CREATE TABLE producer
+CREATE TABLE producers
 (
     id SERIAL PRIMARY KEY,
     name TEXT UNIQUE NOT NULL
 );
 
-CREATE TABLE song
+CREATE TABLE songs
 (
   id SERIAL PRIMARY KEY,
   title TEXT NOT NULL,
@@ -27,14 +27,14 @@ CREATE TABLE song
   album TEXT NOT NULL
 );
 
-CREATE TABLE artist_song
+CREATE TABLE artists_songs
 (
     id SERIAL PRIMARY KEY,
     artist_id INT REFERENCES artist ON DELETE SET NULL,
     song_id INT REFERENCES song ON DELETE SET NULL
 );
 
-CREATE TABLE producer_song
+CREATE TABLE producers_songs
 (
     id SERIAL PRIMARY KEY,
     producer_id INT REFERENCES producer ON DELETE SET NULL,
