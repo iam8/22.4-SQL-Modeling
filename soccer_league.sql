@@ -20,15 +20,13 @@ CREATE TABLE team
 (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
-    ranking INT,
-    league_id INT REFERENCES league ON DELETE SET NULL
+    city TEXT NOT NULL
 );
 
 
-CREATE TABLE league
+CREATE TABLE season
 (
     id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
     start_date DATE,
     end_date DATE
 );
@@ -37,9 +35,12 @@ CREATE TABLE league
 CREATE TABLE match
 (
     id SERIAL PRIMARY KEY,
-    team1 INT REFERENCES team ON DELETE CASCADE,
-    team2 INT REFERENCES team ON DELETE CASCADE,
-    date DATE
+    location TEXT NOT NULL,
+    date DATE NOT NULL,
+    home_team_id INT REFERENCES team ON DELETE CASCADE,
+    away_team_id INT REFERENCES team ON DELETE CASCADE,
+    season_id INT REFERENCES season ON DELETE CASCADE,
+    referee_id INT REFERENCES referee ON DELETE SET NULL
 );
 
 
@@ -55,5 +56,4 @@ CREATE TABLE referee
 (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
-    match_id INT REFERENCES match ON DELETE SET NULL
 );
